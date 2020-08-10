@@ -21,7 +21,10 @@ const City = require('../models/City')
 router.get('/', async(req, res, next) => {
     try {
         const result = await City.find()
-        res.json(result)
+        res.json({
+            confirmation: 'success',
+            data: result
+        })
     }   catch (error) {
         
         return next(error)

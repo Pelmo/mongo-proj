@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Country = require('../models/Country')
 
-//router.get('/', (req, res, next) => {
+// router.get('/', (req, res, next) => {
 
 //     Country.find()
 //     .then(countries => {
@@ -37,22 +37,22 @@ const Country = require('../models/Country')
 //     }
 // })
 
-router.get('/', async(req, res, next) => {
-    try {
-        // use parameters in the form of: 
-        // '/countries?continent=X' in the URL to change database query
-        // to do a space in a URL use '+' or '%20'
-        const query = req.query
+// router.get('/', async(req, res, next) => {
+//     try {
+//         // use parameters in the form of: 
+//         // '/countries?continent=X' in the URL to change database query
+//         // to do a space in a URL use '+' or '%20'
+//         const query = req.query
 
-        const result = await Country.find(query)
-        res.json({
-            confirmation: 'success',
-            data: result
-        })
-    }   catch (error) {
+//         const result = await Country.find(query)
+//         res.json({
+//             confirmation: 'success',
+//             data: result
+//         })
+//     }   catch (error) {
         
-        return next(error)
-    }
-})
+//         return next(error)
+//     }
+// })
 
 module.exports = router
