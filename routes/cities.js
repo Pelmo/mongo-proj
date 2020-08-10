@@ -31,4 +31,27 @@ router.get('/', async(req, res, next) => {
     }
 })
 
+router.get('/add', (req, res, next) => {
+    const details = req.query
+    res.json ({
+        confirmation: 'success',
+        data: details
+    })
+})
+
+
+router.get('/:id', async(req, res, next) => {
+    try {
+        const result = await City.findById(req.params.id)
+        res.json({
+            confirmation: 'success',
+            data: result
+        })
+    }   catch (error) {
+        res.json({
+            confirmation: 'success',
+            message: 'City ' + req.params.id + ' not found'
+        })
+    }
+})
 module.exports = router

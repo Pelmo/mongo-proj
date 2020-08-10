@@ -4,14 +4,14 @@ const mongoose = require('mongoose')
 // connect to our Mongo DB:
 // use object containing { useNewUrlParser: true, useUnifiedTopology: true}
 // as a parameter to remove deprecation warning
-mongoose.connect('mongodb://localhost/world', { useNewUrlParser: true, useUnifiedTopology: true} )
+mongoose.connect('mongodb://localhost/world', { useNewUrlParser: true, useUnifiedTopology: true } )
 .then(data => {
     console.log('Mongo DB conncetion success!')
 })
 .catch(err => {
     console.log('Mongo DB conncetion failed: ' + err.message)
 })
-
+mongoose.set('useFindAndModify', false);
 
 const app = express()
 
